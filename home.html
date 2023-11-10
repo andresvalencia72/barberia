@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <style>
+      :root {
+        --primary-color: rgb(35, 35, 35);
+        --ligth-primary-color: rgb(48, 48, 48);
+        --border: rgb(41, 40, 40);
+        --primary-color-letter: #e2e2e2;
+      }
+      html {
+        font-size: 62.25%;
+      }
+      body {
+        font-size: 16px;
+        background: var(--primary-color);
+        margin: 0;
+        padding: 0.5rem;
+        color: var(--primary-color-letter);
+      }
+      header {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        color: var(--primary-color-letter);
+      }
+      .header__back svg,
+      .header__conf svg {
+        margin: 12px;
+        color: var(--primary-color-letter);
+        width: 15px;
+      }
+
+      main {
+        padding: 15px;
+        width: 90%;
+      }
+      .main__texto {
+        font-size: 1rem;
+      }
+      .search {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        padding: 15px 15px 15px 0;
+      }
+      .search__icon {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .search__input {
+        width: 100%;
+        height: 3rem;
+        border-radius: 10px;
+        background-color: var(--ligth-primary-color);
+        border: 2px solid var(--border);
+        padding: 1rem 4rem;
+        color: var(--primary-color-letter);
+      }
+      .search__input:focus,
+      .search__input:active,
+      .search__input:focus-visible {
+        border: 1px solid var(--border);
+        outline: none;
+        color: var(--primary-color-letter);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header__back">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-arrow-back-up"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M9 14l-4 -4l4 -4"></path>
+          <path d="M5 10h11a4 4 0 1 1 0 8h-1"></path>
+        </svg>
+      </div>
+      <h2 class="logo">Black</h2>
+      <div class="header__conf">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-dots"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+          <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+          <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+        </svg>
+      </div>
+    </header>
+    <main>
+      <h2>Hey,<span> Andrés</span> 👋</h2>
+      <p class="main__texto">Friday, November 2023</p>
+
+      <div class="search">
+        <input type="text" class="search__input" placeholder="Buscar..." />
+        <svg
+          class="search__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-search"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+          <path d="M21 21l-6 -6"></path>
+        </svg>
+      </div>
+      <p class="main__texto">Mejores productos</p>
+
+
+      <div class="bestBarber">
+        <img src="img/barberos/1." alt="">
+      </div>
+    </main>
+  </body>
+</html>

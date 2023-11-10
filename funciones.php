@@ -34,7 +34,7 @@ function dimeNombre($cod_cliente){
     $resultado = $conexion->query($orden);
     if($resultado->fetch_array()){
         foreach($resultado as $key => $value) {
-            $resultado = $value['codigo'];
+            $resultado = $value['nombre'];
         }
     }else{
         $resultado=null;
