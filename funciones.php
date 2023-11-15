@@ -7,7 +7,7 @@
 function conecta()
 {
     $conexion = new mysqli('localhost', 'root', '', 'barberia');
-    $conexion->set_charset('utf8');
+    $conexion->set_charset("utf8");
     return $conexion;
 }
 
