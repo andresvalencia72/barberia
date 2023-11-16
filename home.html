@@ -1,154 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home</title>
-    <style>
-      :root {
-        --primary-color: rgb(35, 35, 35);
-        --ligth-primary-color: rgb(48, 48, 48);
-        --border: rgb(41, 40, 40);
-        --primary-color-letter: #e2e2e2;
-      }
-      html {
-        font-size: 62.25%;
-      }
-      body {
-        font-size: 16px;
-        background: var(--primary-color);
-        margin: 0;
-        padding: 0.5rem;
-        color: var(--primary-color-letter);
-      }
-      header {
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        color: var(--primary-color-letter);
-      }
-      .header__back svg,
-      .header__conf svg {
-        margin: 12px;
-        color: var(--primary-color-letter);
-        width: 15px;
-      }
 
-      main {
-        padding: 15px;
-        width: 90%;
-      }
-      .main__texto {
-        font-size: 1rem;
-      }
-      .search {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        padding: 15px 15px 15px 0;
-      }
-      .search__icon {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      .search__input {
-        width: 100%;
-        height: 3rem;
-        border-radius: 10px;
-        background-color: var(--ligth-primary-color);
-        border: 2px solid var(--border);
-        padding: 1rem 4rem;
-        color: var(--primary-color-letter);
-      }
-      .search__input:focus,
-      .search__input:active,
-      .search__input:focus-visible {
-        border: 1px solid var(--border);
-        outline: none;
-        color: var(--primary-color-letter);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="header__back">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-arrow-back-up"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M9 14l-4 -4l4 -4"></path>
-          <path d="M5 10h11a4 4 0 1 1 0 8h-1"></path>
-        </svg>
-      </div>
-      <h2 class="logo">Black</h2>
-      <div class="header__conf">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-dots"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-          <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-          <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-        </svg>
-      </div>
-    </header>
-    <main>
-      <h2>Hey,<span> Andrés</span> 👋</h2>
-      <p class="main__texto">Friday, November 2023</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>home</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Roboto:wght@400;700&family=Yuji+Hentaigana+Akari&display=swap");
 
-      <div class="search">
-        <input type="text" class="search__input" placeholder="Buscar..." />
-        <svg
-          class="search__icon"
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-search"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-          <path d="M21 21l-6 -6"></path>
-        </svg>
-      </div>
-      <p class="main__texto">Mejores productos</p>
+    :root {
+      --prymary-font: "Roboto";
+      --primary-color: rgb(2, 16, 18);
+      --ligth-primary-color: rgb(48, 48, 48);
+      --border: rgb(41, 40, 40);
+      --primary-color-letter: #e2e2e2;
+      --secondary-color-letter: #aeaeae;
+    }
+
+    html {
+      font-size: 62.25%;
+      font-family: var(--prymary-font);
+    }
+
+    body {
+      font-size: 16px;
+      background: var(--primary-color);
+      margin: 0;
+      padding: 0.5rem;
+      color: var(--primary-color-letter);
+    }
+
+    header {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: var(--primary-color-letter);
+    }
+
+    .header__back svg,
+    .header__conf svg {
+      margin: 12px;
+      color: var(--primary-color-letter);
+      width: 15px;
+    }
+
+    main {
+      padding: 15px;
+      width: 90%;
+    }
+
+    .user__name {
+      font-weight: 100;
+    }
+
+    span {
+      font-weight: 700;
+    }
+
+    .main__texto {
+      font-size: 1rem;
+      color: var(--secondary-color-letter);
+    }
+
+    .otros_textos {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .search {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding: 15px 15px 15px 0;
+    }
+
+    .search__icon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .search__input {
+      width: 100%;
+      height: 2rem;
+      border-radius: 10px;
+      background-color: var(--ligth-primary-color);
+      border: 2px solid var(--border);
+      padding: 1rem 4rem;
+      color: var(--primary-color-letter);
+    }
+
+    .search__input:focus,
+    .search__input:active,
+    .search__input:focus-visible {
+      border: 1px solid var(--border);
+      outline: none;
+      color: var(--primary-color-letter);
+    }
+
+    .vistos {
+      height: 6rem;
+      width: 100%;
+      background-color: #e2e2e2;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .vistos__barbero img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      margin-left: 0.5rem;
+      box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.36);
+      margin-right: 0.5rem;
+    }
+
+    .vistos__puntuacion {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .vistos__puntuacion p,
+    .vistos__puntuacion .vistos__elementos {
+      margin: 0;
+    }
+
+    .vistos__elementos {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    input {
+      background-color: var(--primary-color);
+      padding: 0.7rem;
+      color: var(--primary-color-letter);
+      text-transform: uppercase;
+      font-size: 1rem;
+      width: 100px;
+      border-radius: 8px;
+    }
 
 
-      <div class="bestBarber">
-        <img src="img/barberos/1." alt="">
+    .vistos__puntuacion svg {
+      color: rgb(240, 155, 35);
+      width: 1.2rem;
+    }
+
+    .categorias {
+      width: 100%;
+      display: flex;
+      height: 250px;
+      background-color: red;
+      align-items: center;
+      padding-left: 2px;
+      overflow-y: hidden;
+    }
+
+    .servicio {
+      height: 220px;
+      min-width: 130px;
+      border-radius: 8px;
+      background-color: blue;
+      margin-left: 5px;
+    }
+
+    .imagen {
+      width: 90%;
+      height: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      margin-top: 3px;
+      position: relative;
+    }
+
+    .imagen__img {
+      border-radius: 12px;
+      width: 100%;
+      height: 100%;
+    }
+    .imagen__opciones{
+      position: absolute;
+      display: flex;
+      top: 0;
+      width: 100%;
+      height: 15px;
+    }
+    .puntuacion{
+      padding: .3rem;
+      display: flex;
+      width: 50%;
+      height: 100%;
+      background-color: rgba(35, 35, 35, 0.567);
+      border-radius: 8px;
+      align-items: center;
+    }
+    .guardar{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 40%;
+      margin-right: 5px;
+    }
+    .puntuacion svg{
+      color: rgb(255, 166, 0);
+    }
+    .puntuacion svg, .puntuacion p,.guardar svg{
+      width: 15px;
+      font-size: 1.2rem;
+    }
+
+    .datos{
+      margin-top: 3px;
+      background-color: aliceblue;
+      width: 100%;
+      height: 35%;
+    }
+    .reservar{
+      margin-top: 2px;
+      width: 100%;
+      background-color: bisque;
+      height: 15%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- development -->
+  <header>
+    <div class="header__back">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back-up" width="24" height="24"
+        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M9 14l-4 -4l4 -4"></path>
+        <path d="M5 10h11a4 4 0 1 1 0 8h-1"></path>
+      </svg>
+    </div>
+    <h2 class="logo">Black</h2>
+    <div class="header__conf">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots" width="24" height="24"
+        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+        <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+        <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+      </svg>
+    </div>
+  </header>
+  <main>
+    <h2 class="user__name">Hey,<span> Andrés</span> 👋</h2>
+    <p class="main__texto">Friday, November 2023</p>
+
+    <div class="search">
+      <input type="text" class="search__input" placeholder="Buscar..." />
+      <svg class="search__icon" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search"
+        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+        <path d="M21 21l-6 -6"></path>
+      </svg>
+    </div>
+    <p class="main__texto">Recien vistos</p>
+
+    <section class="vistos">
+      <div class="vistos__barbero">
+        <img src="assets/img/empleados/1.jpg" alt="" />
       </div>
-    </main>
-  </body>
+      <div class="vistos__puntuacion">
+        <p class="otros_textos">Andrés Vargas</p>
+        <div class="vistos__elementos">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24"
+            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+              stroke-width="0" fill="currentColor"></path>
+          </svg>
+          <p class="main__texto">4,3</p>
+        </div>
+      </div>
+      <input type="button" value="book" class="boton" />
+    </section>
+    <p class="main__texto">Mejores productos</p>
+
+    <section class="categorias">
+      <article class="servicio">
+        <div class="imagen">
+          <img src="assets/img/barberia/blog_barberia.jpg" alt="" class="imagen__img">
+          <div class="imagen__opciones">
+            <div class="puntuacion">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+                  stroke-width="0" fill="currentColor"></path>
+              </svg>
+              <p>4,9(179)</p>
+            </div>
+            <div class="guardar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="datos">
+          <p class="main__texto">horarios:</p>
+          <p class="main__texto">Nombre servicio</p>
+          <p class="main__texto">Nombre servicio</p>
+        </div>
+        <div class="reservar">
+          <button>Book Now</button>
+        </div>
+      </article>
+      <article class="servicio">
+        <div class="imagen">
+          <img src="assets/img/barberia/blog_barberia.jpg" alt="" class="imagen__img">
+          <div class="imagen__opciones">
+            <div class="puntuacion">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+                  stroke-width="0" fill="currentColor"></path>
+              </svg>
+              <p>4,9(179)</p>
+            </div>
+            <div class="guardar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="datos">
+          <p class="main__texto">horarios:</p>
+          <p class="main__texto">Nombre servicio</p>
+          <p class="main__texto">Nombre servicio</p>
+        </div>
+        <div class="reservar">
+          <button>Book Now</button>
+        </div>
+      </article>
+      <article class="servicio">
+        <div class="imagen">
+          <img src="assets/img/barberia/blog_barberia.jpg" alt="" class="imagen__img">
+          <div class="imagen__opciones">
+            <div class="puntuacion">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+                  stroke-width="0" fill="currentColor"></path>
+              </svg>
+              <p>4,9(179)</p>
+            </div>
+            <div class="guardar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="datos">
+          <p class="main__texto">horarios:</p>
+          <p class="main__texto">Nombre servicio</p>
+          <p class="main__texto">Nombre servicio</p>
+        </div>
+        <div class="reservar">
+          <button>Book Now</button>
+        </div>
+      </article>
+      <article class="servicio">
+        <div class="imagen">
+          <img src="assets/img/barberia/blog_barberia.jpg" alt="" class="imagen__img">
+          <div class="imagen__opciones">
+            <div class="puntuacion">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24"
+                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+                  stroke-width="0" fill="currentColor"></path>
+              </svg>
+              <p>4,9(179)</p>
+            </div>
+            <div class="guardar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="24" height="24"
+                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="datos">
+          <p class="main__texto">horarios:</p>
+          <p class="main__texto">Nombre servicio</p>
+          <p class="main__texto">Nombre servicio</p>
+        </div>
+        <div class="reservar">
+          <button>Book Now</button>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+
 </html>
