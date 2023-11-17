@@ -3,7 +3,18 @@
 
 
 
+function estaOk()
+{
+    $respuesta = false;
+    if(isset($_SESSION["cliente"])&& $_SESSION['cliente']!=''){
+        // if(isset($_SESSION['cuando'])&&time()-$_SESSION['cuando']<5){
+            $respuesta = true;
+        //     $_SESSION['cuando']=time();
+        // }
+    }
+    return $respuesta;
 
+}
 function conecta()
 {
     $conexion = new mysqli('localhost', 'root', '', 'barberia');
@@ -42,6 +53,26 @@ function dimeNombre($cod_cliente){
     return $resultado;
 }
 
+function mostrarServicios(){
+    $conexion = conecta();
+    $orden = 'SELECT codigo, nombre, precio, descripcion FROM servicio WHERE activo =1';
+    $resultado  = $conexion->query($orden);
+    return $resultado;
+}
+
+// function mostrarHorarios($fecha){
+//     $conexion = conecta();
+//     $orden = 'SELECT c.codigo, c.cod_cliente, c.cod_empleado, c.descripcion, c.fecha, c.tipo_servicio FROM citas c JOIN horarios h ';
+//     $resultado = $conexion->query($orden);
+//     return $resultado;
+// }
+
+function mostrarHorarios(){
+    $conexion = conecta();
+    $orden = 'SELECT codigo, horario FROM horarios ';
+    $resultado = $conexion->query($orden);
+    return $resultado;
+}
 
 
 ?>

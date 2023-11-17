@@ -2,10 +2,8 @@
 require_once("funciones.php");
 session_start();
 
-
-if(isset($_SESSION["cliente"])){
-    header("Location:home.php");
-}
+//borar las sesiones
+unset($_SESSION["cliente"]);
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +76,7 @@ if(isset($_SESSION["cliente"])){
             name="contrasenia"
           />
         </div>
-        <p>Don't have an account?<a href="">Register Here</a></p>
+        <p>Don't have an account?<a href="registrarse.php">Register Here</a></p>
         <input type="submit" name=login value="Login" class="login_button" />
       </form>
     </main>
