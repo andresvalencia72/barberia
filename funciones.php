@@ -74,5 +74,11 @@ function mostrarHorarios(){
     return $resultado;
 }
 
+function mostrarFechasNoDisponibles($fecha){
+    $conexion  = conecta();
+    $orden = "SELECT CAST(fecha AS DATE) AS SoloFecha ,descripcion FROM citas where CAST(fecha AS DATE)  ='$fecha'";
+    $resultado  = $conexion->query($orden);
+    return $resultado;
 
+}
 ?>

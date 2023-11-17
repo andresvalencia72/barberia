@@ -4,7 +4,7 @@
     if (estaOk()){
         $nombre = $_SESSION['cliente'];
         $nombre = dimeNombre($nombre);
-        echo 'Bienvenido ' .$nombre;
+        echo '<h2>Bienvenido ' .$nombre."</h2>";
     }else{
         header('Location: index.php');
     }
@@ -39,25 +39,36 @@
         echo "<br>";
     ?>
         <label for="">Elija día para su servicio</label>
-        <input type="date">
+        <input type="date" name=fecha>
         <br>
         <input type="submit" name=horariosDisponibles value='mostrar horarios disponibles'>
     </form>
     <?php
-        // $horarios = mostrarHorarios();
-        // echo "<select name= >";
-        // foreach($horarios as $horario){
-        //     echo "<option>".$horario["horario"]."</option>";
-        // }
-        // echo "</select>";
+        if(isset($_POST['fecha'])){
+            $fecha = $_POST['fecha'];
+            echo $fecha;
+            $horarios = mostrarHorarios();
+            $fechasNoDisponibles = mostrarFechasNoDisponibles($fecha);
+            echo "<select name= >";
+            foreach($horarios as $horario){
+                echo "<option>".$horario["horario"]."</option>";
+            }
+            echo "</select>";
+            echo "<br>";
+            echo 'fechas ocupadas';
+            // Mostrar las fechas ocupadas por los barberos 
+            echo "<br>";
+            foreach($fechasNoDisponibles as $noDisponible){
+                echo "<h2>Perro ya esta ocupado</h2>";
+                echo $noDisponible['SoloFecha'];
+                echo "<br>";
+                echo $noDisponible['descripcion'];
+            }
+        }
     ?>
 
     <h2>Horarios:</h2>
 
-    <?php
-    // $horarios = mostrarHorarios();
-    //     foreach($horarios as $horario){
-    //         echo "<td>".$horario["fecha"]."</td>";
-    //     }
-    ?>
+
+    
 
