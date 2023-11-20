@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 13:35:32
+-- Tiempo de generación: 20-11-2023 a las 14:02:38
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,7 +32,8 @@ CREATE TABLE `citas` (
   `cod_cliente` int(11) NOT NULL,
   `cod_empleado` int(11) NOT NULL,
   `descripcion` varchar(120) NOT NULL,
-  `fecha` datetime NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
   `tipo_servicio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -40,8 +41,8 @@ CREATE TABLE `citas` (
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`codigo`, `cod_cliente`, `cod_empleado`, `descripcion`, `fecha`, `tipo_servicio`) VALUES
-(1, 1, 1, 'perro esta es una prueba', '2023-11-17 12:30:00', 1);
+INSERT INTO `citas` (`codigo`, `cod_cliente`, `cod_empleado`, `descripcion`, `fecha`, `hora`, `tipo_servicio`) VALUES
+(1, 1, 1, 'perro esta es una prueba', '2023-11-17', '12:00:00', 6);
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,7 @@ INSERT INTO `empleados` (`codigo`, `nombre`, `apellido`, `fecha_registro`, `acti
 
 CREATE TABLE `horarios` (
   `codigo` int(11) NOT NULL,
-  `horario` text NOT NULL
+  `horario` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -133,46 +134,46 @@ CREATE TABLE `horarios` (
 --
 
 INSERT INTO `horarios` (`codigo`, `horario`) VALUES
-(1, '10:00'),
-(2, '10:15'),
-(3, '10:30'),
-(4, '10:45'),
-(5, '11:00'),
-(6, '11:15'),
-(7, '11:30'),
-(8, '11:45'),
-(9, '12:00'),
-(10, '12:15'),
-(11, '12:30'),
-(12, '12:45'),
-(13, '13:00'),
-(14, '13:15'),
-(15, '13:30'),
-(16, '13:45'),
-(17, '14:00'),
-(18, '14:15'),
-(19, '14:30'),
-(20, '14:45'),
-(21, '15:00'),
-(22, '15:15'),
-(23, '15:30'),
-(24, '15:45'),
-(25, '16:00'),
-(26, '16:15'),
-(27, '16:30'),
-(28, '16:45'),
-(29, '17:00'),
-(30, '17:15'),
-(31, '17:30'),
-(32, '17:45'),
-(33, '18:00'),
-(34, '18:15'),
-(35, '18:30'),
-(36, '18:45'),
-(37, '19:00'),
-(38, '19:15'),
-(39, '19:30'),
-(40, '19:45');
+(1, '10:00:00'),
+(2, '10:15:00'),
+(3, '10:30:00'),
+(4, '10:45:00'),
+(5, '11:00:00'),
+(6, '11:15:00'),
+(7, '11:30:00'),
+(8, '11:45:00'),
+(9, '12:00:00'),
+(10, '12:15:00'),
+(11, '12:30:00'),
+(12, '12:45:00'),
+(13, '13:00:00'),
+(14, '13:15:00'),
+(15, '13:30:00'),
+(16, '13:45:00'),
+(17, '14:00:00'),
+(18, '14:15:00'),
+(19, '14:30:00'),
+(20, '14:45:00'),
+(21, '15:00:00'),
+(22, '15:15:00'),
+(23, '15:30:00'),
+(24, '15:45:00'),
+(25, '16:00:00'),
+(26, '16:15:00'),
+(27, '16:30:00'),
+(28, '16:45:00'),
+(29, '17:00:00'),
+(30, '17:15:00'),
+(31, '17:30:00'),
+(32, '17:45:00'),
+(33, '18:00:00'),
+(34, '18:15:00'),
+(35, '18:30:00'),
+(36, '18:45:00'),
+(37, '19:00:00'),
+(38, '19:15:00'),
+(39, '19:30:00'),
+(40, '19:45:00');
 
 -- --------------------------------------------------------
 
