@@ -1,22 +1,22 @@
 <?php
-    session_start();
-    require_once("funciones.php");
-    if (estaOk()){
-        $nombre = $_SESSION['cliente'];
-        $nombre = dimeNombre($nombre);
-        echo '<h2>Bienvenido ' .$nombre."</h2>";
-    }else{
-        header('Location: index.php');
-    }
+session_start();
+require_once("funciones.php");
+if (estaOk()) {
+    $nombre = $_SESSION['cliente'];
+    $nombre = dimeNombre($nombre);
+    echo '<h2>Bienvenido ' . $nombre . "</h2>";
+} else {
+    header('Location: index.php');
+}
 
-    if(isset($_POST['close'])){
-        header('Location:index.php');
-    }
-
-
+if (isset($_POST['close'])) {
+    header('Location:index.php');
+}
 
 
-    ?>
+
+
+?>
     
     
 
@@ -96,16 +96,16 @@
 
 <form action="home.php" method="post">
     <?php
-        $servicios = mostrarServicios();
-        echo "Elija un servicio a realizar:" ;
-        echo "<select name=servicio>";
-        foreach($servicios as $servicio){
-            echo "<option value=".$servicio['codigo'].">";
-            echo $servicio['nombre'];
-            echo "</option>";
-        }
-        echo "</select>";
-        echo "<br>";
+    $servicios = mostrarServicios();
+    echo "Elija un servicio a realizar:";
+    echo "<select name=servicio>";
+    foreach ($servicios as $servicio) {
+        echo "<option value=" . $servicio['codigo'] . ">";
+        echo $servicio['nombre'];
+        echo "</option>";
+    }
+    echo "</select>";
+    echo "<br>";
     ?>
     <label for="">Elija día para su servicio</label>
     <input type="date" name="fecha">
@@ -114,50 +114,114 @@
 </form>
 
 <?php
-        if(isset($_POST['fecha']) && isset($_POST['servicio'])){
-            $fecha = $_POST['fecha'];
-            $servicio = intval($_POST['servicio']);
-            // var_dump($servicio);
-            $horarios = mostrarHorarios();
-            $fechasOcupadas = fechasOcupadas($fecha);
-            $periodos = mostrarPeriodos($servicio);
-            
-            echo "<select name= >";
-            
-                foreach($fechasOcupadas as $fechaOcupada){
-                    foreach($horarios as $horario){
-                    // foreach($periodos as $periodo){
-                        if($horario["horario"] == $fechaOcupada['hora'] ){
-                            while ($periodo = $periodos->fetch_assoc()) {
-                                if($periodo['periodo']!=1){
+if (isset($_POST['fecha']) && isset($_POST['servicio'])) {
+    // Resivimos la fecha y el tipo de servicio
+    $fecha = $_POST['fecha'];
+    $servicio = intval($_POST['servicio']);
 
-                                    echo "<option>".$horario["horario"]."</option>";
-                                }else{
-                                    continue;
-                                }
-                                
-                            }
-                            //mostrar los periodos del servicio y en cual esta ocupado el barbero
-                            
-                        }else{
-                            echo "<option>".$horario["horario"]."</option>";
-                        }
+    // horarios que tiene la tienda
+    $horarios = mostrarHorarios();
+    // fechas que ya estan ocupadas
+    $fechasOcupadas = fechasOcupadas($fecha);
+    // El periodo que ocupa un servicio
+    $periodos = mostrarPeriodos($servicio);
 
-                    // }
-                }
-                
-            }
-            
-            echo "</select>";
-            echo "<br>";
-            // Mostrar las fechas ocupadas por los barberos 
-            echo "<br>";
-           
+    // Debemos filtrar dependiendo de los servicios
+
+
+    $horaOcupado='';
+    // mostrar hora que empieza el servicio ocupado
+    echo "<h2>fechas ocupadas</h2>";
+    foreach ($fechasOcupadas as $fechaOcupada) {
+        echo $fechaOcupado = $fechaOcupada['fecha'];
+        echo $horaOcupado = $fechaOcupada['hora'];
+        // echo $valor;
+    }
+    // var_dump($horaOcupado);
+    // var_dump($periodos['periodo']);
+
+     // mostrar horarios
+     echo "<h2>Horarios barbero 1</h2>";
+     echo "<select name= id=>";
+     foreach ($horarios as $horario) {
+        $horaOcupado = $fechaOcupada['hora'];
+        if($horario['horario']!=$horaOcupado){
+            echo "<option>" . $horario['horario']." (libre)" . "</option>";
+        }else{
+            echo "<option disabled>" . $horario['horario']." (ocupado)" . "</option>";
+
         }
-    ?>
+     }
+     echo "</select>";
+
+     echo "<h2>Horarios barbero 2</h2>";
+     echo "<select name= id=>";
+     foreach ($horarios as $horario) {
+        $horaOcupado = $fechaOcupada['hora'];
+        if($horario['horario']!=$horaOcupado){
+            echo "<option>" . $horario['horario']." (libre)" . "</option>";
+        }else{
+            echo "<option disabled>" . $horario['horario']." (ocupado)" . "</option>";
+
+        }
+     }
+     echo "</select>";
+
+
+    // periodos ocupados y libres
+    echo "<h2>Servicio solicitado por el cliente</h2>";
+    echo "Tipo servicio:".$servicio;
+    foreach ($periodos as $periodo) {
+        // echo $periodo['ocupado'];
+        if ($periodo['ocupado'] == 1) {
+            echo ' ocupado';
+            echo "<br>";
+        }else{
+            echo ' libre';
+            echo "<br>";
+        }
+    }
+
+
+   
+
+
+
+    // echo "<select name= >";
+
+    //     foreach($fechasOcupadas as $fechaOcupada){
+    //         foreach($horarios as $horario){
+    //         // foreach($periodos as $periodo){
+    //             if($horario["horario"] == $fechaOcupada['hora'] ){
+    //                 while ($periodo = $periodos->fetch_assoc()) {
+    //                     if($periodo['periodo']!=1){
+
+    //                         echo "<option>".$horario["horario"]."</option>";
+    //                     }else{
+    //                         continue;
+    //                     }
+
+    //                 }
+    //                 //mostrar los periodos del servicio y en cual esta ocupado el barbero
+
+    //             }else{
+    //                 echo "<option>".$horario["horario"]."</option>";
+    //             }
+
+    //         // }
+    //     }
+
+    // }
+
+    // echo "</select>";
+    // echo "<br>";
+    // // Mostrar las fechas ocupadas por los barberos 
+    // echo "<br>";
+
+}
+?>
 
 </body>
 </html>
 
     
-

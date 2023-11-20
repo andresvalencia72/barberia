@@ -85,14 +85,14 @@ function mostrarHorarios()
 function fechasOcupadas($fecha)
 {
     $conexion  = conecta();
-    $orden = "SELECT CAST(fecha AS DATE) AS SoloFecha ,descripcion, hora FROM citas where CAST(fecha AS DATE)  ='$fecha'";
+    $orden = "SELECT fecha ,descripcion, hora FROM citas where fecha='$fecha'";
     $resultado  = $conexion->query($orden);
     return $resultado;
 }
 
 function mostrarPeriodos($servicio){
     $conexion  = conecta();
-    $orden = "SELECT ocupado FROM desglose where codigo_servicio = $servicio";
+    $orden = "SELECT * FROM desglose where codigo_servicio = $servicio";
     $resultado  = $conexion->query($orden);
     return $resultado;
     
